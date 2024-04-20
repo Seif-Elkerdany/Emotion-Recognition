@@ -6,13 +6,7 @@ import tensorflow as tf
 from PIL import Image
 
 # Load the model and make dictionary with the prediction labels
-# model = tf.keras.models.load_model(r"CNN_FER13_Model_zip.zip")
-@st.cache(allow_output_mutation=True)
-def load_models():
-    model_eval = tf.keras.models.load_model("Check_points/CNN_FER13.h5", compile=False)
-    return model_eval
-
-model = load_models()
+model = tf.keras.models.load_model(r"CNN_FER13_Model.keras")
 emotion_dic= {0: 'Angry', 1: 'Fearful', 2: 'Happy', 3: 'Surprised', 4: 'Neutral', 5: 'Sad'}
 
 @st.cache_data
@@ -37,7 +31,7 @@ def main():
         while choice == "Webcam":
             # Capture frame-by-frame
             ret, frame = camera.read()
-            # frame = cv2.resize(frame, (1280, 720))
+            frame = cv2.resize(frame, (1280, 720))
             # Haarcascades cv2 classifier that helps to detect a face
             face_detector = cv2.CascadeClassifier(r"haarcascades\haarcascade_frontalface_default.xml")
             # Make frames grey before entering the model
