@@ -7,7 +7,12 @@ from PIL import Image
 
 # Load the model and make dictionary with the prediction labels
 # model = tf.keras.models.load_model(r"CNN_FER13_Model_zip.zip")
-model = tf.keras.layers.TFSMLayer("CNN_FER13_Model.keras", call_endpoint='main')
+@st.cache(allow_output_mutation=True)
+def load_models():
+    model_eval = tf.keras.models.load_model("CNN_FER13_Model_zip.zip", compile=False)
+    return model_eval
+
+model = load_models()
 emotion_dic= {0: 'Angry', 1: 'Fearful', 2: 'Happy', 3: 'Surprised', 4: 'Neutral', 5: 'Sad'}
 
 @st.cache_data
