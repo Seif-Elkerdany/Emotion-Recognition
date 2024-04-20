@@ -9,7 +9,7 @@ from PIL import Image
 # model = tf.keras.models.load_model(r"CNN_FER13_Model_zip.zip")
 @st.cache(allow_output_mutation=True)
 def load_models():
-    model_eval = tf.keras.models.load_model("CNN_FER13_Model_zip.zip", compile=False)
+    model_eval = tf.keras.models.load_model("Check_points/CNN_FER13.h5", compile=False)
     return model_eval
 
 model = load_models()
