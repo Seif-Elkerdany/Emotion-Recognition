@@ -6,7 +6,8 @@ import tensorflow as tf
 from PIL import Image
 
 # Load the model and make dictionary with the prediction labels
-model = tf.keras.models.load_model(r"CNN_FER13_Model_zip.zip")
+# model = tf.keras.models.load_model(r"CNN_FER13_Model_zip.zip")
+model = keras.layers.TFSMLayer(CNN_FER13_Model_zip.zip, call_endpoint='serving_default')
 emotion_dic= {0: 'Angry', 1: 'Fearful', 2: 'Happy', 3: 'Surprised', 4: 'Neutral', 5: 'Sad'}
 
 @st.cache_data
