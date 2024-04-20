@@ -37,7 +37,7 @@ def main():
         while choice == "Webcam":
             # Capture frame-by-frame
             ret, frame = camera.read()
-            frame = cv2.resize(frame, (1280, 720))
+            # frame = cv2.resize(frame, (1280, 720))
             # Haarcascades cv2 classifier that helps to detect a face
             face_detector = cv2.CascadeClassifier(r"haarcascades\haarcascade_frontalface_default.xml")
             # Make frames grey before entering the model
