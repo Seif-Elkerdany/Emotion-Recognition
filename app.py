@@ -27,7 +27,8 @@ def main():
         
         FRAME_WINDOW = st.image([])
         camera = cv2.VideoCapture(0)
-
+        st.markdown("Developed by: Seif_Elkerdany© & Mohamed_Walied© 2024", unsafe_allow_html=True)
+        
         while choice == "Webcam":
             # Capture frame-by-frame
             ret, frame = camera.read()
@@ -47,7 +48,7 @@ def main():
                 cropped_img = np.expand_dims(np.expand_dims(cv2.resize(roi_gray_frame, (48, 48)), -1 ), 0)
                 # Remove any possible noise and raise the brightness up 
                 blur = cv2.GaussianBlur(cropped_img, (1, 1), 0)
-                white = cv2.convertScaleAbs(blur, beta = 120)
+                white = cv2.convertScaleAbs(blur, beta = 100)
                 # Predection stage
                 emotion_pred = model.predict(white)
                 maxindex = int(np.argmax(emotion_pred))
