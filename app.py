@@ -27,7 +27,7 @@ def main():
         
         FRAME_WINDOW = st.image([])
         camera = cv2.VideoCapture(0)
-        st.markdown("Developed by: Seif_Elkerdany© & Mohamed_Walied© 2024", unsafe_allow_html=True)
+        st.markdown("Developed by: Seif_Elkerdany© 2024", unsafe_allow_html=True)
         
         while choice == "Webcam":
             # Capture frame-by-frame
@@ -94,7 +94,7 @@ def main():
             st.title("Prediction")
             st.image(final_img, use_column_width=True)
                 
-    st.markdown("Developed by: Seif_Elkerdany© & Mohamed_Walied© 2024", unsafe_allow_html=True)
+    st.markdown("Developed by: Seif_Elkerdany© 2024", unsafe_allow_html=True)
     
 if __name__ == '__main__':
     main()
